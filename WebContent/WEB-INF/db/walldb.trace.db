@@ -1,0 +1,183 @@
+09-27 15:43:16 jdbc[2]: SQLException
+org.h2.jdbc.JdbcSQLException: Error de Sintaxis en sentencia SQL "POSTS[*] SELECT * FROM POSTERS"; se esperaba "PREPARE, {"
+Syntax error in SQL statement "POSTS[*] SELECT * FROM POSTERS"; expected "PREPARE, {"; SQL statement:
+POSTS SELECT * FROM POSTERS [42001-142]
+03-02 11:13:33 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Tabla "POSTS" no encontrada
+Table "POSTS" not found; SQL statement:
+select p.*, u.perNAME from posts p natural join posters u order by pTIME desc [42102-147]
+03-02 11:27:41 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Tabla "TWEETS" no encontrada
+Table "TWEETS" not found; SQL statement:
+update tweets set wtLIKES = wtLIKES + 1 where wtID = 6 [42102-147]
+03-02 11:27:43 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Tabla "TWEETS" no encontrada
+Table "TWEETS" not found; SQL statement:
+update tweets set wtLIKES = wtLIKES + 1 where wtID = 5 [42102-147]
+03-02 11:27:45 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Tabla "TWEETS" no encontrada
+Table "TWEETS" not found; SQL statement:
+update tweets set wtLIKES = wtLIKES + 1 where wtID = 4 [42102-147]
+09-17 20:24:01 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Conversión de datos fallida, convirtiendo "'Philistine' (TWAUTHOR INT NOT NULL)"
+Data conversion error converting "'Philistine' (TWAUTHOR INT NOT NULL)"; SQL statement:
+insert into tweets ( twid , twauthor , twtext , twtime ) select t.wtID, u.wuNAME, t.wtTEXT, t.wtTIME  from wtweets t natural join wusers u -- row #2 (1, 'Philistine', 'A cynic is a man who, when he smells flowers, looks around for a coffin.', TIMESTAMP '2011-02-14 14:56:11.0') [90021-147]
+09-18 00:49:46 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Columna "TTEXT" no encontrada
+Column "TTEXT" not found; SQL statement:
+insert into tweets(twAUTHOR, tTEXT) values (?, ?) [42122-147]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:327)
+	at org.h2.message.DbException.get(DbException.java:167)
+	at org.h2.message.DbException.get(DbException.java:144)
+	at org.h2.table.Table.getColumn(Table.java:556)
+	at org.h2.command.Parser.parseColumnList(Parser.java:759)
+	at org.h2.command.Parser.parseInsert(Parser.java:936)
+	at org.h2.command.Parser.parsePrepared(Parser.java:371)
+	at org.h2.command.Parser.parse(Parser.java:275)
+	at org.h2.command.Parser.parse(Parser.java:247)
+	at org.h2.command.Parser.prepare(Parser.java:201)
+	at org.h2.command.Parser.prepareCommand(Parser.java:214)
+	at org.h2.engine.Session.prepareLocal(Session.java:425)
+	at org.h2.engine.Session.prepareCommand(Session.java:374)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1056)
+	at org.h2.jdbc.JdbcPreparedStatement.<init>(JdbcPreparedStatement.java:71)
+	at org.h2.jdbc.JdbcConnection.prepareStatement(JdbcConnection.java:233)
+	at wallOfTweets.Database.insertTweet(Database.java:45)
+	at wallOfTweets.WoTBrowser.doPost(WoTBrowser.java:82)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:647)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:729)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:269)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:188)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:213)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:172)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:127)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:117)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:108)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:174)
+	at org.apache.coyote.http11.Http11Processor.process(Http11Processor.java:875)
+	at org.apache.coyote.http11.Http11BaseProtocol$Http11ConnectionHandler.processConnection(Http11BaseProtocol.java:665)
+	at org.apache.tomcat.util.net.PoolTcpEndpoint.processSocket(PoolTcpEndpoint.java:528)
+	at org.apache.tomcat.util.net.LeaderFollowerWorkerThread.runIt(LeaderFollowerWorkerThread.java:81)
+	at org.apache.tomcat.util.threads.ThreadPool$ControlRunnable.run(ThreadPool.java:689)
+	at java.lang.Thread.run(Unknown Source)
+09-18 01:05:22 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Columna "TTEXT" no encontrada
+Column "TTEXT" not found; SQL statement:
+insert into tweets(twAUTHOR, tTEXT) values (?, ?) [42122-147]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:327)
+	at org.h2.message.DbException.get(DbException.java:167)
+	at org.h2.message.DbException.get(DbException.java:144)
+	at org.h2.table.Table.getColumn(Table.java:556)
+	at org.h2.command.Parser.parseColumnList(Parser.java:759)
+	at org.h2.command.Parser.parseInsert(Parser.java:936)
+	at org.h2.command.Parser.parsePrepared(Parser.java:371)
+	at org.h2.command.Parser.parse(Parser.java:275)
+	at org.h2.command.Parser.parse(Parser.java:247)
+	at org.h2.command.Parser.prepare(Parser.java:201)
+	at org.h2.command.Parser.prepareCommand(Parser.java:214)
+	at org.h2.engine.Session.prepareLocal(Session.java:425)
+	at org.h2.engine.Session.prepareCommand(Session.java:374)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1056)
+	at org.h2.jdbc.JdbcPreparedStatement.<init>(JdbcPreparedStatement.java:71)
+	at org.h2.jdbc.JdbcConnection.prepareStatement(JdbcConnection.java:233)
+	at wallOfTweets.Database.insertTweet(Database.java:45)
+	at wallOfTweets.WoTBrowser.doPost(WoTBrowser.java:82)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:647)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:729)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:269)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:188)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:213)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:172)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:127)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:117)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:108)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:174)
+	at org.apache.coyote.http11.Http11Processor.process(Http11Processor.java:875)
+	at org.apache.coyote.http11.Http11BaseProtocol$Http11ConnectionHandler.processConnection(Http11BaseProtocol.java:665)
+	at org.apache.tomcat.util.net.PoolTcpEndpoint.processSocket(PoolTcpEndpoint.java:528)
+	at org.apache.tomcat.util.net.LeaderFollowerWorkerThread.runIt(LeaderFollowerWorkerThread.java:81)
+	at org.apache.tomcat.util.threads.ThreadPool$ControlRunnable.run(ThreadPool.java:689)
+	at java.lang.Thread.run(Unknown Source)
+09-18 01:06:16 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Columna "TTEXT" no encontrada
+Column "TTEXT" not found; SQL statement:
+insert into tweets(twAUTHOR, tTEXT) values (?, ?) [42122-147]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:327)
+	at org.h2.message.DbException.get(DbException.java:167)
+	at org.h2.message.DbException.get(DbException.java:144)
+	at org.h2.table.Table.getColumn(Table.java:556)
+	at org.h2.command.Parser.parseColumnList(Parser.java:759)
+	at org.h2.command.Parser.parseInsert(Parser.java:936)
+	at org.h2.command.Parser.parsePrepared(Parser.java:371)
+	at org.h2.command.Parser.parse(Parser.java:275)
+	at org.h2.command.Parser.parse(Parser.java:247)
+	at org.h2.command.Parser.prepare(Parser.java:201)
+	at org.h2.command.Parser.prepareCommand(Parser.java:214)
+	at org.h2.engine.Session.prepareLocal(Session.java:425)
+	at org.h2.engine.Session.prepareCommand(Session.java:374)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1056)
+	at org.h2.jdbc.JdbcPreparedStatement.<init>(JdbcPreparedStatement.java:71)
+	at org.h2.jdbc.JdbcConnection.prepareStatement(JdbcConnection.java:233)
+	at wallOfTweets.Database.insertTweet(Database.java:45)
+	at wallOfTweets.WoTBrowser.doPost(WoTBrowser.java:82)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:647)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:729)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:269)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:188)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:213)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:172)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:127)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:117)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:108)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:174)
+	at org.apache.coyote.http11.Http11Processor.process(Http11Processor.java:875)
+	at org.apache.coyote.http11.Http11BaseProtocol$Http11ConnectionHandler.processConnection(Http11BaseProtocol.java:665)
+	at org.apache.tomcat.util.net.PoolTcpEndpoint.processSocket(PoolTcpEndpoint.java:528)
+	at org.apache.tomcat.util.net.LeaderFollowerWorkerThread.runIt(LeaderFollowerWorkerThread.java:81)
+	at org.apache.tomcat.util.threads.ThreadPool$ControlRunnable.run(ThreadPool.java:689)
+	at java.lang.Thread.run(Unknown Source)
+09-18 01:36:23 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Columna "TTIME" no encontrada
+Column "TTIME" not found; SQL statement:
+select * from tweets order by tTIME desc [42122-147]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:327)
+	at org.h2.message.DbException.get(DbException.java:167)
+	at org.h2.message.DbException.get(DbException.java:144)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:126)
+	at org.h2.command.dml.Select.prepare(Select.java:773)
+	at org.h2.command.Parser.prepare(Parser.java:202)
+	at org.h2.command.Parser.prepareCommand(Parser.java:214)
+	at org.h2.engine.Session.prepareLocal(Session.java:425)
+	at org.h2.engine.Session.prepareCommand(Session.java:374)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1056)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:71)
+	at wallOfTweets.Database.getTweets(Database.java:26)
+	at wallOfTweets.WoTBrowser.doGet(WoTBrowser.java:35)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:627)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:729)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:269)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:188)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:213)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:172)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:127)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:117)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:108)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:174)
+	at org.apache.coyote.http11.Http11Processor.process(Http11Processor.java:875)
+	at org.apache.coyote.http11.Http11BaseProtocol$Http11ConnectionHandler.processConnection(Http11BaseProtocol.java:665)
+	at org.apache.tomcat.util.net.PoolTcpEndpoint.processSocket(PoolTcpEndpoint.java:528)
+	at org.apache.tomcat.util.net.LeaderFollowerWorkerThread.runIt(LeaderFollowerWorkerThread.java:81)
+	at org.apache.tomcat.util.threads.ThreadPool$ControlRunnable.run(ThreadPool.java:689)
+	at java.lang.Thread.run(Unknown Source)
+09-18 17:58:02 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Tabla "WEETS" no encontrada
+Table "WEETS" not found; SQL statement:
+select * from weets order by twTIME desc [42102-147]
+10-03 15:37:15 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Error de Sintaxis en sentencia SQL "ALTER TABLE  TWEETS ADD  LIKES INT NOT NULL DEFAULT  0 AFTER[*]  TWTEXT "
+Syntax error in SQL statement "ALTER TABLE  TWEETS ADD  LIKES INT NOT NULL DEFAULT  0 AFTER[*]  TWTEXT "; SQL statement:
+ALTER TABLE  tweets ADD  likes INT NOT NULL DEFAULT  0 AFTER  twTEXT [42000-147]
+10-03 15:40:00 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Error de Sintaxis en sentencia SQL "ALTER TABLE TWEETS ADD TWLIKES INT NOT NULL DEFAULT 0 AFTER[*] TWTEXT "
+Syntax error in SQL statement "ALTER TABLE TWEETS ADD TWLIKES INT NOT NULL DEFAULT 0 AFTER[*] TWTEXT "; SQL statement:
+alter table tweets add twlikes int not null default 0 after twtext [42000-147]
